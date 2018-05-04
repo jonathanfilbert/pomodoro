@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<title>Gradient Pomodoro Timer</title>
+	<div class="gaya">
+		<body>
+			<div class="container"><p id="demo"><p></div>
+			<div class="container"><p id="timer"></p></div>
+			<script>
+			document.getElementById('timer').innerHTML =
+			25 + ":" + 00;
+			startTimer();
+			function startTimer() {
+			var presentTime = document.getElementById('timer').innerHTML;
+			var timeArray = presentTime.split(/[:]+/);
+			var m = timeArray[0];
+			var s = checkSecond((timeArray[1] - 1));
+			if(s==59){m=m-1}
+			//if(m<0){alert('timer completed')}
+			
+			document.getElementById('timer').innerHTML =
+			m + ":" + s;
+			setTimeout(startTimer, 1000);
+			}
+			function checkSecond(sec) {
+			if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+			if (sec < 0) {sec = "59"};
+			return sec;
+			}
+			</script>
+		</body>
+	</div>
+</html>
